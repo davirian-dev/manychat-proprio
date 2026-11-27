@@ -23,10 +23,11 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3333;
-const META_VERIFY_TOKEN = process.env.META_VERIFY_TOKEN || 'token_secreto_davirian_2026';
+const META_VERIFY_TOKEN = process.env.META_VERIFY_TOKEN;
 
 // Middlewares
-app.use(cors());
+const allowedOrigins = ['http://localhost:3333', 'http://localhost:3000'];
+app.use(cors({ origin: (origin, cb) => cb(null, !origin || allowedOrigins.includes(origin)) }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../public')));
@@ -223,6 +224,12 @@ app.post('/webhook/takeshi', (req, res) => {
 // ============================================================================
 
 app.post('/webhook/pix', (req, res) => {
+  const secretHeader = req.headers['x-webhook-secret'] || req.query.secret;
+  const expectedSecret = process.env.PIX_WEBHOOK_SECRET;
+  if (expectedSecret && secretHeader !== expectedSecret) {
+    return res.status(401).json({ error: 'Não autorizado: segredo do webhook inválido.' });
+  }
+
   const { valor, cliente, telefone, canalOrigem, idTransacao } = req.body;
 
   registrarLog('Pix Checkout', 'Pagamento Confirmado', {

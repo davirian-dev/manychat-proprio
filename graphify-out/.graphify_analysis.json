@@ -1,0 +1,116 @@
+{
+  "communities": {
+    "0": [
+      "ref_path",
+      "ref_url",
+      "src_server",
+      "src_server_app",
+      "src_server_dirname",
+      "src_server_eventlogs",
+      "src_server_filename",
+      "src_server_processarcomentarioinstagram",
+      "src_server_processarmensageminstagram",
+      "src_server_registrarlog"
+    ],
+    "1": [
+      "package",
+      "package_author",
+      "package_description",
+      "package_keywords",
+      "package_license",
+      "package_main",
+      "package_name",
+      "package_type",
+      "package_version"
+    ],
+    "2": [
+      "package_dependencies",
+      "package_dependencies_cors",
+      "package_dependencies_dotenv",
+      "package_dependencies_express",
+      "ref_cors",
+      "ref_dotenv",
+      "ref_express"
+    ],
+    "3": [
+      "package_scripts",
+      "package_scripts_dev",
+      "package_scripts_start",
+      "package_scripts_test"
+    ],
+    "4": [
+      "iniciar_webhook_engine",
+      "iniciar_webhook_engine_path",
+      "iniciar_webhook_engine_sh__entry"
+    ],
+    "5": [
+      "test_webhook",
+      "test_webhook_rodartestes"
+    ]
+  },
+  "cohesion": {
+    "0": 0.24444444444444444,
+    "1": 0.2222222222222222,
+    "2": 0.2857142857142857,
+    "3": 0.5,
+    "4": 0.6666666666666666,
+    "5": 1.0
+  },
+  "gods": [
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 4
+    },
+    {
+      "id": "ref_cors",
+      "label": "cors",
+      "degree": 3
+    },
+    {
+      "id": "ref_dotenv",
+      "label": "dotenv",
+      "degree": 3
+    },
+    {
+      "id": "ref_express",
+      "label": "express",
+      "degree": 3
+    },
+    {
+      "id": "src_server_registrarlog",
+      "label": "registrarLog()",
+      "degree": 3
+    },
+    {
+      "id": "iniciar_webhook_engine_sh__entry",
+      "label": "iniciar_webhook_engine.sh script",
+      "degree": 2
+    },
+    {
+      "id": "package_dependencies_cors",
+      "label": "cors@^2.8.5",
+      "degree": 2
+    },
+    {
+      "id": "package_dependencies_dotenv",
+      "label": "dotenv@^16.4.7",
+      "degree": 2
+    },
+    {
+      "id": "package_dependencies_express",
+      "label": "express@^4.21.2",
+      "degree": 2
+    },
+    {
+      "id": "src_server_processarmensageminstagram",
+      "label": "processarMensagemInstagram()",
+      "degree": 2
+    }
+  ],
+  "surprises": [],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}
